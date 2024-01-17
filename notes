@@ -1,0 +1,53 @@
+Steps
+
+1. start.spring.io -> details and dependencies
+2. Unzipped
+3. opened in intellIJ
+4. DB connection details -> next class
+5. Start coding
+
+spring.jpa.hibernate.ddl-auto=update || create || verify
+
+update -> everytime we run the system, only new changes are updated
+create -> everytime we run this system, drop all the tables and then re-create them with current changes
+verify -> verify whether the DB has required tables and columns as per entities
+
+
+For all dependent objects -> we use annotation called @Component
+but if they also do something specific -> @Repository, @Service
+
+For controllers which support RestAPIs -> @RestController
+For simple controllers which does not support REST APIs -> @Controller
+
+DTOs are supposed to be used by Controller layer only, service and repository layer should not deal with
+DTOs, they should only deal with internal models.
+
+
+
+User 1:M -> ticket
+
+A user
+<1,2,3,4,5>
+
+B user
+5
+
+Ticket table
+ticketId, userId
+B           5
+
+
+
+Ideal ->
+Controller -> service -> repository
+                |
+              service
+
+
+TicketController -> TicketService -> TicketRepository
+                        |
+                ShowSeatService/UserService
+
+1. Have properly initialised data into DB for BookMyShow and Splitwise
+2. Demo for both BookMyShow and Splitwise
+3. Case study
